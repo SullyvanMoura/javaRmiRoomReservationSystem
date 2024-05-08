@@ -33,10 +33,10 @@ public class Client {
             System.exit(0);
         }
         
-        System.out.println("Bem Vindo ao sistema de reserva de salas!");
+        System.out.println("Bem vindo ao sistema de reserva de salas!");
         System.out.println("As salas são reservadas em períodos de 1 hora!");
         
-        String options = "-------------------------------------\n"
+        String options = "-----------------------------------------------------\n"
 				+ "1. Cadastrar nova reserva\n"
 				+ "2. Desfazer uma reserva\n"
     			+ "3. Consultar se a sala está livre no horário desejado\n"
@@ -44,7 +44,7 @@ public class Client {
     			+ "5. Listar reservas de um usuário\n"
     			+ "6. Terminar o cliente\n"
     			+ "0. Mostrar opções novamente\n"
-    			+ "-------------------------------------\n";
+    			+ "-----------------------------------------------------\n";
         
 		System.out.print(options);
         

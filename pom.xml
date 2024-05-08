@@ -3,6 +3,12 @@
   <groupId>org.ufrrj</groupId>
   <artifactId>trabalho-sd-2024.1</artifactId>
   <version>1.0</version>
+  
+     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+  
 	<dependencies>
 	
 	    <dependency>
@@ -24,9 +30,69 @@
 	   </dependency>	
 		
 	</dependencies>
-	
-    <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-    </properties>
+
+    <build>
+        <plugins>
+        
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.3.0</version>
+                <executions>
+                    <!-- Configuração para o módulo cliente -->
+                    <execution>
+                        <id>client-jar</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <descriptorRefs>
+                                <descriptorRef>jar-with-dependencies</descriptorRef>
+                            </descriptorRefs>
+                            <archive>
+                                <manifest>
+                                    <mainClass>client.Client</mainClass>
+                                </manifest>
+                            </archive>
+                            <finalName>client</finalName>
+                        </configuration>
+                    </execution>
+                    <!-- Configuração para o módulo servidor -->
+                    <execution>
+                        <id>server-jar</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <descriptorRefs>
+                                <descriptorRef>jar-with-dependencies</descriptorRef>
+                            </descriptorRefs>
+                            <archive>
+                                <manifest>
+                                    <mainClass>server.Server</mainClass>
+                                </manifest>
+                            </archive>
+                            <finalName>server</finalName>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>3.2.0</version> 
+				<executions>
+					<execution>
+						<id>default-jar</id>
+						<phase>none</phase> <!-- Isso evita que o JAR padrão seja criado -->
+					</execution>
+				</executions>
+			</plugin>
+
+        </plugins>
+    </build>
+
 </project>
