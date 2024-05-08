@@ -161,7 +161,7 @@ public class Database {
 
 			while(rs.next()) {
 				
-				reservation = new Reservation(rs.getString("roomId"), rs.getString("userId"), rs.getDate("dt").toString());
+				reservation = new Reservation(rs.getString("roomId"), rs.getString("userId"), rs.getTimestamp("dt").toString());
 				reservations.add(reservation);
 			}
 			

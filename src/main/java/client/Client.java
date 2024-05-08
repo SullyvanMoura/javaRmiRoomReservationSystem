@@ -18,10 +18,18 @@ public class Client {
     	
     	RoomManager roomManager = null;
         Scanner scanner = new Scanner(System.in);
+        String serverIp = "localhost";
+        
+        if (args.length > 0) {
+        	
+        	serverIp = args[0];
+        }
         
         try {
+        	
+        	System.out.println("Conenctando ao servidor: " + serverIp);
             // Obtém uma referência para o registro RMI
-            Registry registry = LocateRegistry.getRegistry("localhost");
+            Registry registry = LocateRegistry.getRegistry(serverIp);
 
             // Procura o gerenciador de salas no registro pelo nome
             roomManager = (RoomManager) registry.lookup("RoomManager");
