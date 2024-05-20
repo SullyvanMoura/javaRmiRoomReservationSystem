@@ -9,17 +9,17 @@ import server.models.Reservation;
 public interface RoomManager extends Remote {
 	
 	/** Create a reservation
-	 * @return true if reservation was successfully created or false if reservation was not created
+	 * @return a string message informing if reservation was successfully created or if reservation was not created
 	 */
 	String createReservation(String userId, String roomId, int year, int month, int day, int hour) throws RemoteException;
 	
 	/** Remove a reservation
-	 * @return true if reservation was successfully removed or false if reservation was not removed
+	 * @return a string message informing if reservation was successfully removed or if reservation was not removed
 	 */
 	String removeReservation(String userId, String roomId, int year, int month, int day, int hour) throws RemoteException;
 	
 	/** Verify is a reservation exists
-	 * @return true if reservation exists or false if reservation not exists
+	 * @return a string message informing if reservation exists or if reservation not exists
 	 */
 	String checkReservation(String roomId, int year, int month, int day, int hour) throws RemoteException;
 	
